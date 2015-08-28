@@ -6,32 +6,20 @@ var sinonChai = require("sinon-chai");
 var Person = require("../../src/practice_1.js");
 var expect = chai.expect;
 chai.use(sinonChai);
-//
-//describe("OO入门", function(){
-//    it("写一个类-1", function(){
-//        sinon.spy(console, 'log');
-//
-//        require("../../src/practice_1")
-//        var result = _.flatten(console.log.args).join("\n");
-//        var expect_string = '下面是部分学生的成绩详情\n沙龙逸\t语文124 数学148 英语137\n刘钰婷\t语文115 数学139 英语135\n韩林霖\t语文127 数学139 英语142\n平均成绩\t语文122 数学142 英语138';
-//
-//        expect(expect_string).to.equal(result);
-//    });
-//});
 
 describe('practice-1-spec', function() {
-    var testName = 'Anlin';
-    var testAge = 26;
-    var testIntroduce = "My name is Tom. I am 21 years old.";
-    var thePerson = new Person('Anlin', 26);
 
+    it('should have field name and age', function() {
+        var thePerson = new Person('Anlin', 26);
 
-    it('test attribute name and age', function() {
-        expect(thePerson.name).to.equal(testName);
-        expect(thePerson.age).equal(testAge);
+        expect(thePerson.name).to.equal('Anlin');
+        expect(thePerson.age).equal(26);
     });
 
-    it('test class method.', function() {
-        expect(thePerson.introduce()).equal(testIntroduce);
+    it('should have a method introduce, introduce person with name and age.', function() {
+        var thePerson = new Person('Anlin', 26);
+
+        var introduce = thePerson.introduce();
+        expect(introduce).equal("My name is Anlin. I am 26 years old.");
     });
 });
